@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # Check for updates every half hour between 15:00 UTC and 19:00 UTC on Tuesday through Thursday
-    - cron: '0,30 15-19 * * 2-4'
+    - cron: '0,10 15-22 * * 2-4'
     # Check for updates every hour between 17:00 UTC and 19:00 UTC on Monday and Friday
     - cron: '0 17-19 * * 1,5'
     # Check for updates at 19:00 UTC once every Saturday and Sunday

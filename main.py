@@ -226,9 +226,16 @@ def checkForUpdate(packageFamilyName: str, categoryId: str, releaseType: Release
     except Exception as error: logger.error(f"Error occurred while checking for {packageFamilyName} updates. Error: {error}")
 
 if __name__ == "__main__":
-    updateGlobalVariable()
-    logger.info("-" * 100)
-    checkForUpdate("Microsoft.MinecraftUWP_8wekyb3d8bbwe", "d25480ca-36aa-46e6-b76b-39608d49558c", ReleaseType.Release)
-    logger.info("-" * 100)
-    checkForUpdate("Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe", "188f32fc-5eaa-45a8-9f78-7dde4322d131", ReleaseType.Preview)
-    logger.info("-" * 100)
+    try:
+        print("Script started")
+        updateGlobalVariable()
+        logger.info("-" * 100)
+        checkForUpdate("Microsoft.MinecraftUWP_8wekyb3d8bbwe", "d25480ca-36aa-46e6-b76b-39608d49558c", ReleaseType.Release)
+        logger.info("-" * 100)
+        checkForUpdate("Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe", "188f32fc-5eaa-45a8-9f78-7dde4322d131", ReleaseType.Preview)
+        logger.info("-" * 100)
+        print("Script completed successfully")
+    except Exception as e:
+        logger.error(f"Script failed with error: {e}")
+        traceback.print_exc()
+        exit(1)
